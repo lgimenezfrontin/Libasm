@@ -2,14 +2,14 @@
 	global _ft_strlen
 
 _ft_strlen:
-	xor	rax, rax
+	mov	rcx, 0
 
 _strlen_loop:
-	cmp	[rdi], 0
+	cmp	[rdi + rcx], 0
 	je	_strlen_null
-	inc	rax
-	inc	rdi
+	inc	rcx
 	jmp	_strlen_loop
 
 _strlen_null:
+	mov rax, rcx
 	ret
