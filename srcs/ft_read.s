@@ -1,8 +1,8 @@
 
-	global _ft_write
+	global _ft_read
 
 _ft_write:
-	mov	rax, 1
+	mov	rax, 0
 	syscall
 	jc	_write_error
 	ret
