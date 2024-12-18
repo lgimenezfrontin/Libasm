@@ -5,7 +5,7 @@ _ft_strlen:
 	mov	rcx, 0
 
 _strlen_loop:
-	cmp	[rdi + rcx], 0
+	cmp	BYTE[rdi + rcx], 0
 	je	_strlen_null
 	inc	rcx
 	jmp	_strlen_loop
