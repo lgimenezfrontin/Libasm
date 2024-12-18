@@ -5,12 +5,12 @@ CC =		nasm
 
 FLAGS =		-felf64 
 
-SRCS = 		srcs/ft_strlen.s \
-			srcs/ft_strcpy.s \
-			srcs/ft_strcmp.s \
-			srcs/ft_write.s \
-			srcs/ft_read.s \
-			srcs/ft_strdup.s
+SRCS = 			ft_strlen.s \
+			ft_strcpy.s \
+			ft_strcmp.s \
+			ft_write.s \
+			ft_read.s \
+			ft_strdup.s
 
 OBJS =		$(SRCS:.s=.o)
 

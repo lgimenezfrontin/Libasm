@@ -1,7 +1,7 @@
 
-	global _ft_strcpy
+	global ft_strcpy
 
-_ft_strcpy:
+ft_strcpy:
 	mov	rcx, 0
 
 _strcpy_loop:

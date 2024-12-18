@@ -1,11 +1,11 @@
 
-	global _ft_strdup
-	extern _ft_strlen
-	extern _ft_strcpy
+	global ft_strdup
+	extern ft_strlen
+	extern ft_strcpy
 	extern malloc
 	extern __errno_location
 
-_ft_strdup:
+ft_strdup:
 	call	_ft_strlen
 	inc	rax
 	push	rdi
