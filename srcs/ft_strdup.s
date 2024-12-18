@@ -2,9 +2,11 @@
 	global _ft_strdup
 	extern _ft_strlen
 	extern _ft_strcpy
+	extern malloc
+	extern __errno_location
 
 _ft_strdup:
-	call	ft_strlen
+	call	_ft_strlen
 	inc	rax
 	push	rdi
 	mov	rdi, rax
@@ -12,7 +14,7 @@ _ft_strdup:
 	jc	_strdup_error
 	mov	rdi, rax
 	pop	rsi
-	call	ft_strcpy
+	call	_ft_strcpy
 	ret
 
 _strdup_error:

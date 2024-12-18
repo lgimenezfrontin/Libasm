@@ -1,5 +1,6 @@
 
 	global _ft_write
+	extern __errno_location
 
 _ft_write:
 	mov	rax, 1

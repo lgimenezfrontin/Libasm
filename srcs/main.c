@@ -12,6 +12,7 @@
 void	ft_testStrlen()
 {
 	printf("strlen: %ld\n", strlen(STR1));
+	printf("ft_strlen: %ld\n", ft_strlen(STR1));
 }
 
 void	ft_testStrcpy()
