@@ -6,7 +6,7 @@
 	extern __errno_location
 
 ft_strdup:
-	call	_ft_strlen
+	call	ft_strlen
 	inc	rax
 	push	rdi
 	mov	rdi, rax
@@ -14,7 +14,7 @@ ft_strdup:
 	jc	_strdup_error
 	mov	rdi, rax
 	pop	rsi
-	call	_ft_strcpy
+	call	ft_strcpy
 	ret
 
 _strdup_error:
