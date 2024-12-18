@@ -3,7 +3,7 @@ NAME =		libasm.a
 
 CC =		nasm
 
-FLAGS =		-f elf64 
+FLAGS =		-felf64 
 
 SRCS = 		srcs/ft_strlen.s \
 			srcs/ft_strcpy.s \
@@ -17,7 +17,7 @@ OBJS =		$(SRCS:.s=.o)
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJ)
+			ar rcs $(NAME) $(OBJS)
 
 %.o:		%.s
 			$(CC) $(FLAGS)  $< -o $@
