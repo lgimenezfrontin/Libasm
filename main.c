@@ -6,7 +6,7 @@
 /*   By: lgimenez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:45:30 by lgimenez          #+#    #+#             */
-/*   Updated: 2024/12/18 17:11:53 by lgimenez         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:27:38 by lgimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_test_strlen(void)
 	printf("strlen: %ld\n", strlen(STR2));
 	printf("ft_strlen: %ld\n\n", ft_strlen(STR2));
 
-//	strlen(null); // Error case without a defined behavior
+//	strlen(0); // Error case without a defined behavior
 }
 
 void	ft_test_strcpy(void)
@@ -52,11 +52,18 @@ void	ft_test_strcpy(void)
 
 	printf("||TEST STRCPY||\n");
 
-	printf("We copy '%s' into dst with strcpy\n", STR1);
-	printf("dst: %s\n\n", strcpy(dst, STR1));
-
 	printf("We copy '%s' into dst with strcpy\n", STR4);
-	printf("dst: %s\n\n", strcpy(dst, STR4));
+	printf("dst: '%s'\n\n", strcpy(dst, STR4));
+
+	printf("We copy '%s' into dst with ft_strcpy\n", STR1);
+	printf("dst: '%s'\n\n", ft_strcpy(dst, STR1));
+
+	printf("We copy '%s' into dst with ft_strcpy\n", STR4);
+	printf("dst: '%s'\n\n", ft_strcpy(dst, STR4));
+
+//	strcpy(dst, 0); // Error case without a defined behavior
+//	strcpy(0, STR1); // Error case without a defined behavior
+//	strcpy(dst, STR2); // Error case without a defined behavior
 
 	free(dst);
 }

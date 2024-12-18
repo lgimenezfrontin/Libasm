@@ -9,6 +9,6 @@ _strcpy_loop:
 	mov	[rdi + rcx], al
 	inc	rcx
 	cmp	al, 0
-	jmp	_strcpy_loop
+	jne	_strcpy_loop
 	mov	rax, rdi
 	ret
