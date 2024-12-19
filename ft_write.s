@@ -10,7 +10,7 @@ ft_write:
 	ret
 
 _write_error:
-	movq	r8, rax
+	mov		r8, rax
 	call	__errno_location wrt ..plt
 	neg		r8
 	mov		[rax], r8

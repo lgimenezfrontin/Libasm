@@ -1,16 +1,15 @@
 
 	global ft_read
-	extern __errno_location
-
+    extern __errno_location
 ft_read:
-	mov		rax, 1
+	mov		rax, 0
 	syscall
 	cmp		rax, 0
 	jl		_read_error
 	ret
 
 _read_error:
-	movq	r8, rax
+	mov		r8, rax
 	call	__errno_location wrt ..plt
 	neg		r8
 	mov		[rax], r8
