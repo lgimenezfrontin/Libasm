@@ -19,8 +19,7 @@ ft_strdup:
 	ret
 
 _strdup_error:
-	mov		r8, rax
 	call	__errno_location wrt ..plt
-	mov		[rax], r8
+	mov		BYTE[rax], 12
 	mov		rax, 0
 	ret
