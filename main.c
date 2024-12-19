@@ -6,7 +6,7 @@
 /*   By: lgimenez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:45:30 by lgimenez          #+#    #+#             */
-/*   Updated: 2024/12/19 09:10:31 by lgimenez         ###   ########.fr       */
+/*   Updated: 2024/12/19 10:44:25 by lgimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #define STR2 "How are you"
 #define STR3 "Fine!"
 #define STR4 "Bye"
+#define STR5 "This line has been written using ft_write"
 
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char *dest, char *src);
@@ -48,24 +49,25 @@ void	ft_test_strlen(void)
 
 void	ft_test_strcpy(void)
 {
-	char	*dst = malloc(sizeof(char) * 10);
+	char	*dst1 = malloc(sizeof(char) * 10);
+	char	*dst2 = malloc(sizeof(char) * 10);
 
 	printf("||TEST STRCPY||\n");
 
-	printf("We copy '%s' into dst with strcpy\n", STR4);
-	printf("dst: '%s'\n\n", strcpy(dst, STR4));
+	printf("With '%s' as src\n", STR3);
+	printf("strcpy(into dst1): '%s'\n", strcpy(dst1, STR3));
+	printf("ft_strcpy(into dst2): '%s'\n\n", ft_strcpy(dst2, STR3));
 
-	printf("We copy '%s' into dst with ft_strcpy\n", STR1);
-	printf("dst: '%s'\n\n", ft_strcpy(dst, STR1));
+	printf("With '%s' as src\n", STR4);
+	printf("strcpy(into dst1): '%s'\n", strcpy(dst1, STR4));
+	printf("ft_strcpy(into dst2): '%s'\n\n", ft_strcpy(dst2, STR4));
 
-	printf("We copy '%s' into dst with ft_strcpy\n", STR4);
-	printf("dst: '%s'\n\n", ft_strcpy(dst, STR4));
-
-//	strcpy(dst, 0); // Error case without a defined behavior
+//	strcpy(dst1, 0); // Error case without a defined behavior
 //	strcpy(0, STR1); // Error case without a defined behavior
-//	strcpy(dst, STR2); // Error case without a defined behavior
+//	strcpy(dst1, STR2); // Error case without a defined behavior
 
-	free(dst);
+	free(dst1);
+	free(dst2);
 }
 
 void	ft_test_strcmp(void)
@@ -90,7 +92,12 @@ void	ft_test_strcmp(void)
 
 void	ft_test_write(void)
 {
+	printf("||TEST WRITE||\n");
 
+	ft_write(1, STR5, ft_strlen(STR5));
+
+//	int	fd1 = open("testwrite.txt", O_CREAT|O_WRONLY);
+//	ft_write(fd1, STR5, ft_strlen(STR5));
 }
 
 void	ft_test_read(void)
