@@ -6,7 +6,7 @@
 /*   By: lgimenez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:45:30 by lgimenez          #+#    #+#             */
-/*   Updated: 2024/12/18 17:27:38 by lgimenez         ###   ########.fr       */
+/*   Updated: 2024/12/19 09:10:31 by lgimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,22 @@ void	ft_test_strcpy(void)
 
 void	ft_test_strcmp(void)
 {
-//	printf("ft_strcmp: %d\n", ft_strcmp(STR1, STR2));
+	printf("||TEST STRCMP||\n");
+
+	printf("Compare '%s' with '%s'\n", STR1, STR3);
+	printf("strcmp: %d\n", strcmp(STR1, STR3));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(STR1, STR3));
+
+	printf("Compare '%s' with '%s'\n", STR1, STR2);
+	printf("strcmp: %d\n", strcmp(STR1, STR2));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(STR1, STR2));
+
+	printf("Compare '%s' with '%s'\n", STR3, STR3);
+	printf("strcmp: %d\n", strcmp(STR3, STR3));
+	printf("ft_strcmp: %d\n\n", ft_strcmp(STR3, STR3));
+
+//	strcmp(STR1, 0); // Error case without a defined behavior
+//	strcmp(0, STR1); // Error case without a defined behavior
 }
 
 void	ft_test_write(void)

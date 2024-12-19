@@ -1,20 +1,28 @@
 
-	global _ft_strcmp
+	global ft_strcmp
 
-_ft_strcmp:
-	mov	rcx, 0
-	mov	rax, 0
-	mov	r8, 0
-	movzx	rax, BYTE[rdi + rcx]
-	movzx	r8, BYTE[rsi + rcx]
-	cmp	rax, 0
-	cmp	r8, 0
-	jz	_strcmp_sub
-	cmp	rax, r8
-	jne	_strcmp_sub
-	inc	rcx
-	jmp	_ft_strcmp
+ft_strcmp:
+	mov		rcx, 0
 
-_strcmp_sub:
-	sub	rax, rsi
+_strcmp_loop:
+	mov		al, BYTE[rdi + rcx]
+	mov		dl, BYTE[rsi + rcx]
+	cmp		al, dl
+	jg		_strcmp_greater
+	jl		_strcmp_less
+	cmp		al, 0
+	je		_strcmp_equal
+	inc		rcx
+	jmp		_strcmp_loop
+
+_strcmp_greater:
+	mov		rax, 1
+	ret
+
+_strcmp_less:
+	mov		rax, -1
+	ret
+
+_strcmp_equal:
+	mov		rax, 0
 	ret
