@@ -5,12 +5,14 @@
 ft_write:
 	mov		rax, 1
 	syscall
-	jc		_write_error
+	cmp		rax, 0
+	jl		_write_error
 	ret
 
 _write_error:
-	mov	r8, rax
-	call	__errno_location
+	movq	r8, rax
+	call	__errno_location wrt ..plt
+	neg		r8
 	mov		[rax], r8
 	mov		rax, -1
 	ret
