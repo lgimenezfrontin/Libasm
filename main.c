@@ -6,7 +6,7 @@
 /*   By: lgimenez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:45:30 by lgimenez          #+#    #+#             */
-/*   Updated: 2024/12/19 16:57:07 by lgimenez         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:10:22 by lgimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	ft_test_strlen(void)
 
 void	ft_test_strcpy(void)
 {
+	printf("\n--||TEST STRCPY||--\n");
+
 	char	*dst1 = malloc(sizeof(char) * 10);
 	char	*dst2 = malloc(sizeof(char) * 10);
-
-	printf("\n--||TEST STRCPY||--\n");
 
 	printf("With '%s' as src\n", STR3);
 	printf("strcpy(into dst1): '%s'\n", strcpy(dst1, STR3));
@@ -91,16 +91,16 @@ void	ft_test_write(void)
 	ret = ft_write(1, STR5, ft_strlen(STR5));
 	printf("\n(length: %ld ; ft_write return value: %ld)\n\n", strlen(STR5), ret);
 
-	fd1 = open("testwrite.txt", O_CREAT|O_WRONLY, S_IRWXU);
+	fd1 = open("test.txt", O_CREAT|O_WRONLY, S_IRWXU);
 	ret = ft_write(fd1, STR5, ft_strlen(STR5));
-	printf("Using ft_write, some text has been appended to the 'testwrite.txt' file\n\n");
+	printf("Using ft_write, some text has been appended to the 'test.txt' file\n\n");
 	close(fd1);
 
 	ret = ft_write(42, STR5, ft_strlen(STR5));
 	printf("We tried using ft_write with an invalid file descriptor\n");
 	printf("return value is: %ld ; errno is: '%s'\n\n", ret, strerror(errno));
 
-	fd1 = open("testwrite.txt", O_CREAT|O_WRONLY|O_APPEND, S_IRWXU);
+	fd1 = open("test.txt", O_CREAT|O_WRONLY|O_APPEND, S_IRWXU);
 	ret = ft_write(fd1, 0, ft_strlen(STR5));
 	printf("We tried using ft_write with an invalid buffer address\n");
 	printf("return value is: %ld ; errno is: '%s'\n\n", ret, strerror(errno));
@@ -116,27 +116,27 @@ void	ft_test_read(void)
 	char	buf1[100];
 	char	buf2[100];
 
-	fd1 = open("testwrite.txt", O_RDONLY);
+	fd1 = open("test.txt", O_RDONLY);
 	ret = ft_read(fd1, buf1, 100);
-	printf("Using ft_read, we read 100 characters of the 'testwrite.txt' file\n");
+	printf("Using ft_read, we read 100 characters of the 'test.txt' file\n");
 	buf1[ret] = 0;
 	printf("return value is: %ld ; buffer is: '%s'\n\n", ret, buf1);
 	close(fd1);
 
-	fd1 = open("testwrite.txt", O_RDONLY);
+	fd1 = open("test.txt", O_RDONLY);
 	ret = ft_read(fd1, buf2, 12);
-	printf("Using ft_read, we read 12 characters of the 'testwrite.txt' file\n");
+	printf("Using ft_read, we read 12 characters of the 'test.txt' file\n");
 	buf2[ret] = 0;
 	printf("return value is: %ld ; buffer is: '%s'\n\n", ret, buf2);
 	close(fd1);
 
-	fd1 = open("testwrite.txt", O_WRONLY);
+	fd1 = open("test.txt", O_WRONLY);
 	ret = ft_read(fd1, buf1, 100);
 	printf("We tried using ft_read with an invalid file descriptor\n");
 	printf("return value is: %ld ; errno is: '%s'\n\n", ret, strerror(errno));
 	close(fd1);
 
-	fd1 = open("testwrite.txt", O_RDONLY);
+	fd1 = open("test.txt", O_RDONLY);
 	ret = ft_read(fd1, 0, 100);
 	printf("We tried using ft_read with an invalid buffer address\n");
 	printf("return value is: %ld ; errno is: '%s'\n\n", ret, strerror(errno));
@@ -146,7 +146,26 @@ void	ft_test_read(void)
 
 void	ft_test_strdup(void)
 {
+	printf("\n--||TEST STRDUP||--\n");
 
+	char	*dst1;
+	char	*dst2;
+
+	printf("With '%s' as src\n", STR1);
+	dst1 = strdup(STR1);
+	printf("strdup(into dst1): '%s'\n", dst1);
+	dst2 = ft_strdup(STR1);
+	printf("ft_strdup(into dst2): '%s'\n\n", dst2);
+	free(dst1);
+	free(dst2);
+	
+	printf("With '%s' as src\n", STR2);
+	dst1 = strdup(STR2);
+	printf("strdup(into dst1): '%s'\n", dst1);
+	dst2 = ft_strdup(STR2);
+	printf("ft_strdup(into dst2): '%s'\n\n", dst2);
+	free(dst1);
+	free(dst2);
 }
 
 int	main(void)
